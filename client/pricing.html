@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pricing — Whiteboard</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="dashboard-body">
+    <nav class="glass-nav">
+      <a href="/" class="logo" style="text-decoration:none;color:inherit;">← Back</a>
+      <div style="flex:1"></div>
+      <button id="theme-toggle" class="icon-btn">🌙</button>
+    </nav>
+
+    <main class="dashboard-main" style="text-align: center;">
+      <h1 style="font-size: 3rem; margin-bottom: 10px;">Simple Pricing</h1>
+      <p style="color: #888; font-size: 1.2rem;">Start for free, upgrade for superpowers.</p>
+
+      <div class="pricing-grid">
+        <!-- Free -->
+        <div class="pricing-card">
+          <h2>Free</h2>
+          <div class="price">$0</div>
+          <ul style="text-align: left;">
+            <li>Infinite Canvas</li>
+            <li>Standard Colors & Pens</li>
+            <li>10 Color Picks/day</li>
+          </ul>
+          <button disabled style="width:100%; padding:12px; border-radius:8px; background:#eee; border:none;">Current Plan</button>
+        </div>
+
+        <!-- Pro -->
+        <div class="pricing-card pro">
+          <h2>Pro</h2>
+          <div class="price" id="pro-price">$12<span style="font-size:1rem; color:#888;">/mo</span></div>
+          <ul style="text-align: left;">
+            <li>Everything in Free</li>
+            <li>Unlimited Color Picks</li>
+            <li>Premium Colors & Highlighter</li>
+            <li>Import PDFs</li>
+            <li>Lock Toolbar Position</li>
+          </ul>
+          
+          <form id="coupon-form" style="display:flex; gap:10px; margin-bottom:15px;">
+            <input type="text" id="coupon-input" placeholder="Coupon Code" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; background:transparent; color:inherit;">
+            <button type="submit" style="padding:0 15px; border-radius:8px; border:none; background:var(--text); color:var(--bg); font-weight:bold;">Apply</button>
+          </form>
+          <p id="coupon-message" style="font-size:0.9rem; min-height:20px; margin:0 0 15px 0;"></p>
+
+          <button id="checkout-btn" style="width:100%; padding:12px; border-radius:8px; background:var(--active); color:#fff; border:none; font-weight:bold; cursor:pointer;">Upgrade Now</button>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/src/pricing.ts"></script>
+  </body>
+</html>

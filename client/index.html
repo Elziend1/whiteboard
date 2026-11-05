@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Whiteboard — Home</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="dashboard-body">
+    <nav class="glass-nav">
+      <div class="logo">Whiteboard</div>
+      <div style="flex: 1"></div>
+      <a href="/pricing.html" class="upgrade-link">Upgrade to Pro</a>
+      <button id="theme-toggle" class="icon-btn">🌙</button>
+    </nav>
+    
+    <main class="dashboard-main">
+      <h1>Create or Open</h1>
+      
+      <!-- Hidden file input for PDF -->
+      <input type="file" id="pdf-input" accept=".pdf" style="display: none;" />
+
+      <div class="card-grid">
+        <div class="start-card" id="btn-infinite" style="cursor: pointer;">
+          <div class="icon">♾️</div>
+          <h2>Infinite Canvas</h2>
+          <p>Limitless space for brainstorming.</p>
+        </div>
+        <div class="start-card" id="btn-notebook" style="cursor: pointer;">
+          <div class="icon">📓</div>
+          <h2>Notebook</h2>
+          <p>Standard lined pages for notes.</p>
+        </div>
+        <div class="start-card pro-locked" id="btn-pdf" style="cursor: pointer;">
+          <div class="icon">📄</div>
+          <h2>Import PDF</h2>
+          <p>Annotate documents (Pro).</p>
+        </div>
+      </div>
+      
+      <h2 class="recent-title">Recent Files</h2>
+      <div class="recent-list" id="recent-list" style="display: flex; flex-direction: column; gap: 10px;">
+        <!-- Populated by JS -->
+      </div>
+    </main>
+    <script type="module" src="/src/dashboard.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "whiteboard",
+  "private": true,
+  "workspaces": ["protocol", "server", "client"],
+  "scripts": {
+    "dev:server": "npm -w server run dev",
+    "dev:client": "npm -w client run dev",
+    "typecheck": "npm -w server run typecheck && npm -w client run typecheck"
+  }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board — Whiteboard</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <nav class="glass-nav">
+      <a href="/" class="logo" style="text-decoration:none; color:inherit;">← Whiteboard</a>
+      <div style="flex: 1"></div>
+      <a href="/pricing.html" class="upgrade-link">Upgrade to Pro</a>
+      <button id="theme-toggle" class="icon-btn">🌙</button>
+    </nav>
+    
+    <div id="canvas-container">
+      <canvas id="board"></canvas>
+      <div id="cursors"></div>
+      <!-- Note Editor Overlay -->
+      <textarea id="note-editor" class="hidden" style="position:absolute; z-index:300; border:none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius:4px; padding:10px; font-family:'Comic Sans MS', cursive; resize:none; display:none;"></textarea>
+    </div>
+
+    <div id="settings-panel" class="glass-panel hidden">
+      <h3>Settings</h3>
+      <label><input type="checkbox" id="set-toolbar-lock" checked> Lock Toolbar</label>
+      <hr style="border:none; border-top:1px solid var(--divider); margin:8px 0;">
+      <label>Current Page Style:</label>
+      <select id="set-paper" style="padding:8px; border-radius:8px; border:1px solid var(--divider); background:var(--glass-bg); color:var(--text);">
+        <option value="blank">Blank</option>
+        <option value="lined">Lined</option>
+        <option value="grid">Grid</option>
+        <option value="dot">Dots</option>
+      </select>
+    </div>
+
+    <!-- Floating Toolbar -->
+    <div id="floating-toolbar" class="glass-toolbar" style="bottom: 24px; left: 50%; transform: translateX(-50%);">
+      <div id="drag-handle" class="drag-handle" title="Drag Toolbar">⋮⋮</div>
+      
+      <!-- Undo / Redo -->
+      <button id="undo-btn" class="tool-btn" title="Undo">↩️</button>
+      <button id="redo-btn" class="tool-btn" title="Redo">↪️</button>
+      
+      <div class="divider"></div>
+
+      <button class="tool-btn" data-tool="hand" title="Pan Canvas" id="hand-btn">🖐️</button>
+      <button class="tool-btn active" data-tool="pen" title="Pen">✏️</button>
+      <button class="tool-btn" data-tool="shape" data-shape="rect" title="Rectangle">⬜</button>
+      <button class="tool-btn" data-tool="shape" data-shape="circle" title="Circle">⭕</button>
+      <button class="tool-btn" data-tool="note" title="Sticky Note">📝</button>
+      <button class="tool-btn" data-tool="eraser" title="Eraser">🧹</button>
+      <button class="tool-btn pro-locked" data-tool="highlighter" title="Highlighter (Pro)">🖍️</button>
+      
+      <div class="divider"></div>
+      
+      <input type="color" id="color-picker" value="#ffffff" title="Color">
+      <button id="premium-colors-btn" class="tool-btn" title="Premium Colors">🎨</button>
+      
+      <div class="divider"></div>
+      
+      <button id="eyedropper-btn" class="tool-btn" title="Color Detector">💧<span id="eyedropper-count">10</span></button>
+      
+      <div class="divider"></div>
+      
+      <!-- Page Controls (Notebook only) -->
+      <div id="page-controls" class="hidden" style="display:flex; align-items:center; gap:4px;">
+        <button id="prev-page" class="tool-btn">⬅️</button>
+        <span id="page-label" style="font-weight:bold; font-size:0.9rem;">1</span>
+        <button id="next-page" class="tool-btn">➡️</button>
+        <div class="divider"></div>
+      </div>
+      
+      <input type="range" id="brush-size" min="1" max="30" value="3" title="Brush Size">
+      <button id="settings-btn" class="tool-btn" title="Settings">⚙️</button>
+      <button id="clear-btn" class="tool-btn" title="Clear" style="color: #ff4d4f;">🗑️</button>
+    </div>
+
+    <div id="premium-palette" class="glass-panel hidden" style="width: 200px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;"></div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
